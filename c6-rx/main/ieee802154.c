@@ -70,7 +70,7 @@ bool ieee802154_init(void)
                 if(esp_ieee802154_enable() == ESP_OK)
                 {
                     //esp_ieee802154_set_cca_threshold(-94);
-                    esp_ieee802154_set_ack_timeout(12*16);
+                    esp_ieee802154_set_ack_timeout(120*16);
                     esp_ieee802154_set_promiscuous(false);
                     esp_ieee802154_set_rx_when_idle(true);
                     esp_ieee802154_set_coordinator(false);
