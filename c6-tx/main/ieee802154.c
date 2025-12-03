@@ -329,13 +329,13 @@ static bool ieee802154_get_tx_status(void)
 
 void esp_ieee802154_transmit_done(const uint8_t *frame, const uint8_t *ack, esp_ieee802154_frame_info_t *ack_frame_info)
 {
-    ESP_DRAM_LOGI(TAG,"TX done %c",(*ack?'A':' '));
+    ESP_DRAM_LOGI(TAG,"TX done %c",(*ack?'A':'F'));
 
     if(ack)
     {
-        esp_ieee802154_receive_handle_done(frame);
+        esp_ieee802154_receive_handle_done(ack);
     }
-    else
+    if(frame)
     {
         ieee802154_set_tx_status(true);
         xSemaphoreGiveFromISR(ieee802154_ctrl.tx_sem, NULL);
