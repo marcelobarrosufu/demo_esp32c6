@@ -37,13 +37,13 @@ void app_main(void)
 
     ieee802154_init();
     ieee802154_set_tx_pwr(10);
-    ieee802154_set_channel(26);
+    ieee802154_set_channel(16);
     ieee802154_set_panid(26);
     ieee802154_set_short_addr(0x000B);
 
     while(true)
     {
-        if(ieee802154_recv_msg(&msg,500))
+        if(ieee802154_recv_msg(&msg,1000))
         {
             ESP_LOGI(TAG,"From 0x%04x '%s'",msg.src_addr,(char *)msg.data);
         }

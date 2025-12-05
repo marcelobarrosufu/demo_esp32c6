@@ -49,14 +49,14 @@ static void app_tx(void *pvParameters)
 
         if(ieee802154_send_msg(&msg,false))
         {
-            ESP_LOGI(TAG,"Sent !");
+            ESP_LOGI(TAG,"Sent %" PRIu32 " ...",cnt);
         }
         else
         {
-            ESP_LOGI(TAG,"Not sent !");
+            ESP_LOGI(TAG,"Not sent %" PRIu32 " ...",cnt);
         }
 
-        vTaskDelay(pdMS_TO_TICKS(500));
+        vTaskDelay(pdMS_TO_TICKS(50));
         cnt++;
     }
 }

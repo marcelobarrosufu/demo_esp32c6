@@ -329,7 +329,7 @@ static bool ieee802154_get_tx_status(void)
 
 void esp_ieee802154_transmit_done(const uint8_t *frame, const uint8_t *ack, esp_ieee802154_frame_info_t *ack_frame_info)
 {
-    ESP_DRAM_LOGI(TAG,"TX done %c",(*ack?'A':'F'));
+    ESP_DRAM_LOGI(TAG,"TX done %c%c",(ack?'A':' '),(frame?'F':' '));
 
     if(ack)
     {
