@@ -387,7 +387,7 @@ bool ieee802154_send_msg(ieee802154_frame_t *msg, bool retry)
         if(xSemaphoreTake(ieee802154_ctrl.tx_sem, pdMS_TO_TICKS(ieee802154_ctrl.tx_timeout_ms)) == pdTRUE)
         {
              if(ieee802154_get_tx_status() == true)
-             status = true;
+                status = true;
         }
     }
     else
